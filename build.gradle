@@ -27,6 +27,8 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    maven { url "https://maven.tehnut.info" }
+    maven { url 'https://maven.thiakil.com/' }
 }
 
 apply plugin: 'idea'
