@@ -17,6 +17,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.INpc;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.item.EntityItem;
@@ -48,7 +49,7 @@ import static com.minecolonies.api.util.constant.Constants.ONE_HUNDRED_PERCENT;
  * The abstract citizen entity.
  */
 @SuppressWarnings({"PMD.ExcessiveImports", "PMD.CouplingBetweenObjects"})
-public abstract class AbstractEntityCitizen extends EntityAgeable implements ICommandSender, ICapabilitySerializable<NBTTagCompound>
+public abstract class AbstractEntityCitizen extends EntityAgeable implements ICommandSender, ICapabilitySerializable<NBTTagCompound>, INpc
 {
 
     public static final DataParameter<Integer>  DATA_LEVEL           = EntityDataManager.createKey(AbstractEntityCitizen.class, DataSerializers.VARINT);
