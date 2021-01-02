@@ -3,6 +3,7 @@ package com.minecolonies.apiimp.initializer;
 import com.minecolonies.api.blocks.ModBlocks;
 import com.minecolonies.api.colony.buildings.ModBuildings;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
+import com.minecolonies.coremod.colony.buildings.views.EmptyView;
 import com.minecolonies.coremod.colony.buildings.workerbuildings.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -245,6 +246,13 @@ public final class ModBuildingsInitializer
                                  .setRegistryName(new ResourceLocation(ModBuildings.ENCHANTER_ID))
                                  .createBuildingEntry();
 
+        ModBuildings.stash = new BuildingEntry.Builder()
+                                .setBuildingBlock(ModBlocks.blockStash)
+                                .setBuildingProducer(Stash::new)
+                                .setBuildingViewProducer(() -> EmptyView::new)
+                                .setRegistryName(new ResourceLocation(ModBuildings.STASH_ID))
+                                .createBuildingEntry();
+
         reg.register(ModBuildings.archery);
         reg.register(ModBuildings.bakery);
         reg.register(ModBuildings.barracks);
@@ -277,5 +285,6 @@ public final class ModBuildingsInitializer
         reg.register(ModBuildings.postBox);
         reg.register(ModBuildings.florist);
         reg.register(ModBuildings.enchanter);
+        reg.register(ModBuildings.stash);
     }
 }

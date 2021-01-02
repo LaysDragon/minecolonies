@@ -16,6 +16,7 @@ import com.minecolonies.api.util.*;
 import com.minecolonies.api.util.constant.Constants;
 import com.minecolonies.api.advancements.AdvancementTriggers;
 import com.minecolonies.coremod.colony.buildings.workerbuildings.PostBox;
+import com.minecolonies.coremod.colony.buildings.workerbuildings.Stash;
 import com.minecolonies.coremod.colony.workorders.WorkOrderBuildBuilding;
 import com.minecolonies.coremod.entity.ai.citizen.builder.ConstructionTapeHelper;
 import com.minecolonies.coremod.event.EventHandler;
@@ -337,7 +338,7 @@ public class BuildToolPasteMessage extends AbstractMessage<BuildToolPasteMessage
             building.setStyle(sn.getStyle());
             building.setRotation(rotation);
 
-            if (!(building instanceof PostBox))
+            if (!(building instanceof PostBox || building instanceof Stash))
             {
                 ConstructionTapeHelper.removeConstructionTape(building.getCorners(), world);
                 final WorkOrderBuildBuilding workOrder = new WorkOrderBuildBuilding(building, 1);

@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 
@@ -300,6 +301,12 @@ public class TileEntityRack extends AbstractTileEntityRack
         return null;
     }
 
+    @Override
+    public ItemStackHandler createInventory(final int slots)
+    {
+        return new RackInventory(slots);
+    }
+
     /**
      * Checks if the chest is empty.
      * This method checks the content list, it is therefore extremely fast.
@@ -312,6 +319,7 @@ public class TileEntityRack extends AbstractTileEntityRack
         return content.isEmpty();
     }
 
+
     @Override
     public void readFromNBT(final NBTTagCompound compound)
     {
@@ -321,7 +329,7 @@ public class TileEntityRack extends AbstractTileEntityRack
             size = compound.getInteger(TAG_SIZE);
             if (size > 0)
             {
-                inventory = new RackInventory(DEFAULT_SIZE + size * SLOT_PER_LINE);
+                inventory = createInventory(DEFAULT_SIZE + size * SLOT_PER_LINE);
             }
         }
 

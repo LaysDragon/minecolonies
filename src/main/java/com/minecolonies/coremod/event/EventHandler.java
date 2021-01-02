@@ -479,7 +479,7 @@ public class EventHandler
     {
         final EntityPlayer player = event.getPlayer();
         final World world = event.getWorld();
-        if (event.getPlacedBlock().getBlock() instanceof AbstractBlockHut && event.getPlacedBlock().getBlock() != ModBlocks.blockPostBox)
+        if (event.getPlacedBlock().getBlock() instanceof AbstractBlockHut && event.getPlacedBlock().getBlock() != ModBlocks.blockPostBox && event.getPlacedBlock().getBlock() != ModBlocks.blockStash)
         {
             final IColony colony = IColonyManager.getInstance().getIColony(world, event.getPos());
             if (colony != null && !colony.getPermissions().hasPermission(player, Action.ACCESS_HUTS))

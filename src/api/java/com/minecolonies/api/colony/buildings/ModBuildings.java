@@ -37,6 +37,7 @@ public final class ModBuildings
     public static final String        POSTBOX_ID        = "Postbox";
     public static final String        FLORIST_ID        = "Florist";
     public static final String        ENCHANTER_ID      = "enchanter";
+    public static final String        STASH_ID          = "stash";
 
     public static       BuildingEntry archery;
     public static       BuildingEntry bakery;
@@ -70,6 +71,7 @@ public final class ModBuildings
     public static       BuildingEntry postBox;
     public static       BuildingEntry florist;
     public static       BuildingEntry enchanter;
+    public static       BuildingEntry stash;
 
     private ModBuildings()
     {

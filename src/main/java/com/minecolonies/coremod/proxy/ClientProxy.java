@@ -235,6 +235,8 @@ public class ClientProxy extends CommonProxy
         createCustomModel(ModBlocks.blockWayPoint);
         createCustomModel(ModBlocks.blockPostBox);
         createCustomModel(ModBlocks.blockDecorationPlaceholder);
+        createCustomModel(ModBlocks.blockStash);
+
 
         createCustomModel(ModItems.clipboard);
         createCustomModel(ModItems.caliper);

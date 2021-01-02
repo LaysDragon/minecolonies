@@ -45,6 +45,7 @@ public final class ModBlocks
     public static AbstractBlockHut blockPostBox;
     public static AbstractBlockHut blockHutFlorist;
     public static AbstractBlockHut blockHutEnchanter;
+    public static AbstractBlockHut blockStash;
 
     /**
      * Utility blocks.

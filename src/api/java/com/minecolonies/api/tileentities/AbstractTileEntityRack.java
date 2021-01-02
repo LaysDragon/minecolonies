@@ -40,7 +40,13 @@ public abstract class AbstractTileEntityRack extends TileEntity
     /**
      * The inventory of the tileEntity.
      */
-    protected IItemHandlerModifiable inventory        = new RackInventory(DEFAULT_SIZE);
+    protected IItemHandlerModifiable inventory;       // = new RackInventory(DEFAULT_SIZE);
+
+    public AbstractTileEntityRack()
+    {
+        super();
+        inventory = createInventory(DEFAULT_SIZE);
+    }
 
     /**
      * Rack inventory type.
@@ -75,6 +81,13 @@ public abstract class AbstractTileEntityRack extends TileEntity
             return result;
         }
     }
+
+    /**
+     * Create the inventory that belongs to the rack.
+     * @param slots the number of slots.
+     * @return the created inventory,
+     */
+    public abstract ItemStackHandler createInventory(final int slots);
 
     /**
      * Update the warehouse if available with the updated stack.
