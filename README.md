@@ -20,6 +20,12 @@ https://www.minecolonies.com/
 - Stash block from 1.15 (but missing a lot of translation)
 - fix journeymap inpc support from [ldtteam/minecolonies#4784](https://github.com/ldtteam/minecolonies/pull/4784)
 
+### Add
+- add support for modded shield
+- add support for tinker bow(but only durability Effective)
+
+
+
 For Developers
 --
 

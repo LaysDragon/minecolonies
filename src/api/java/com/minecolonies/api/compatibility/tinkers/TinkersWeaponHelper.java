@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.tools.SwordCore;
+import slimeknights.tconstruct.library.tools.ranged.BowCore;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 /**
@@ -33,7 +34,7 @@ public final class TinkersWeaponHelper extends TinkersWeaponProxy
     @Optional.Method(modid = "tconstruct")
     public boolean isTinkersWeapon(@NotNull final ItemStack stack)
     {
-        return !ItemStackUtils.isEmpty(stack) && stack.getItem() instanceof SwordCore;
+        return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof SwordCore || stack.getItem() instanceof BowCore);
     }
 
     /**

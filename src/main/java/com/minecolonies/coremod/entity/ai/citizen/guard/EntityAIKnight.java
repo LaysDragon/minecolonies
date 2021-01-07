@@ -115,15 +115,13 @@ public class EntityAIKnight extends AbstractEntityAIGuard<JobKnight>
      */
     protected IAIState attackProtect()
     {
-        final int shieldSlot = InventoryUtils.findFirstSlotInItemHandlerWith(new InvWrapper(getInventory()),
-          Items.SHIELD,
-          -1);
+        final int shieldSlot = InventoryUtils.getFirstSlotOfItemHandlerContainingTool(new InvWrapper(getInventory()), ToolType.SHIELD, 0, buildingGuards.getMaxToolLevel());
 
         if (target != null && !target.isDead)
         {
             if (shieldSlot != -1)
             {
-                worker.getCitizenItemHandler().setHeldItem(EnumHand.OFF_HAND, shieldSlot);
+                worker.getCitizenItemHandler().setHeldItem(EnumHand.OFF_HAND,  shieldSlot);
                 worker.setActiveHand(EnumHand.OFF_HAND);
 
                 worker.faceEntity(target, (float) TURN_AROUND, (float) TURN_AROUND);
