@@ -23,7 +23,7 @@ https://www.minecolonies.com/
 ### Add
 - add support for modded shield
 - add support for tinker bow(but only durability Effective)
-
+- fix guard will request a new weapon will tinker tool is broken
 
 
 For Developers

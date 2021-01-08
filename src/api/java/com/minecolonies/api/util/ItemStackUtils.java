@@ -3,6 +3,7 @@ package com.minecolonies.api.util;
 import com.google.common.collect.Lists;
 import com.minecolonies.api.compatibility.Compatibility;
 import com.minecolonies.api.compatibility.candb.ChiselAndBitsCheck;
+import com.minecolonies.api.compatibility.tinkers.ToolBrokenCheck;
 import com.minecolonies.api.crafting.ItemStorage;
 import com.minecolonies.api.entity.citizen.AbstractEntityCitizen;
 import com.minecolonies.api.items.ModItems;
@@ -376,6 +377,10 @@ public final class ItemStackUtils
     {
         if (isEmpty(itemStack))
         {
+            return false;
+        }
+
+        if(ToolBrokenCheck.checkTinkersBroken(itemStack)){
             return false;
         }
 
