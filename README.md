@@ -24,7 +24,9 @@ https://www.minecolonies.com/
 - add support for modded shield
 - add support for tinker bow(but only durability Effective)
 - fix guard will request a new weapon will tinker tool is broken
-
+- add ability for guard to request tinker bow from warehouse
+- add ability for add tinker bow recipe in Blacksmith(I guess it can use for repairing task as it already support tinker sword recipe?)
+- add ability for worker request and use hoe tinker Mattock and Kama(need test)
 
 For Developers
 --

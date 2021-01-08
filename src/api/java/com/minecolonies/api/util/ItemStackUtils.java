@@ -329,6 +329,8 @@ public final class ItemStackUtils
             {
                 final ItemHoe itemHoe = (ItemHoe) stack.getItem();
                 return getToolLevel(itemHoe.getMaterialName());
+            }else if(Compatibility.isTinkersTool(stack,ToolType.HOE)){
+                return Compatibility.getToolLevel(stack);
             }
         }
         else if (ToolType.SWORD.equals(toolType))
@@ -389,9 +391,9 @@ public final class ItemStackUtils
         {
             isATool = getMiningLevel(itemStack, toolType) >= 0;
         }
-        else if (ToolType.HOE.equals(toolType))
+        else if (ToolType.HOE.equals(toolType) )
         {
-            isATool = itemStack.getItem() instanceof ItemHoe;
+            isATool = itemStack.getItem() instanceof ItemHoe || Compatibility.isTinkersTool(itemStack,ToolType.HOE);
         }
         else if (ToolType.BOW.equals(toolType))
         {
@@ -407,7 +409,7 @@ public final class ItemStackUtils
         }
         else if (ToolType.SHEARS.equals(toolType))
         {
-            isATool = itemStack.getItem() instanceof ItemShears;
+            isATool = itemStack.getItem() instanceof ItemShears || Compatibility.isTinkersTool(itemStack,ToolType.SHEARS);
         }
         else if (ToolType.HELMET.equals(toolType))
         {

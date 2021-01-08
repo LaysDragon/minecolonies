@@ -4,6 +4,7 @@ import com.minecolonies.api.compatibility.dynamictrees.DynamicTreeCompat;
 import com.minecolonies.api.compatibility.tinkers.SlimeTreeCheck;
 import com.minecolonies.api.compatibility.tinkers.TinkersWeaponHelper;
 import com.minecolonies.api.compatibility.tinkers.ToolBrokenCheck;
+import com.minecolonies.api.util.constant.IToolType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -117,6 +118,18 @@ public final class Compatibility
     public static boolean isTinkersLongRangeWeapon(@NotNull final ItemStack stack)
     {
         return TinkersWeaponHelper.isTinkersBow(stack);
+    }
+
+    /**
+     * Check if a certain itemstack is a tinkers tool
+     *
+     * @param stack the stack to check for.
+     * @param toolType the tool type to check for.
+     * @return true if so.
+     */
+    public static boolean isTinkersTool(@NotNull final ItemStack stack,@Nullable final IToolType toolType)
+    {
+        return TinkersWeaponHelper.isTinkersAnyTool(stack,toolType);
     }
 
     /**

@@ -1,12 +1,18 @@
 package com.minecolonies.api.compatibility.tinkers;
 
 import com.minecolonies.api.util.ItemStackUtils;
+import com.minecolonies.api.util.constant.IToolType;
+import com.minecolonies.api.util.constant.ToolType;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.tools.SwordCore;
+import slimeknights.tconstruct.library.tools.TinkerToolCore;
+import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.tools.ranged.BowCore;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+import slimeknights.tconstruct.tools.tools.Mattock;
 
 /**
  * Class to check if certain tinkers items serve as weapons for the guards.
@@ -36,6 +42,18 @@ public final class TinkersWeaponHelper extends TinkersWeaponProxy
     }
 
     /**
+     * Check if a certain itemstack is a tinkers any tool
+     *
+     * @param stack the stack to check for.
+     * @param toolType the tool type to check for.
+     * @return true if so.
+     */
+    public static boolean isTinkersAnyTool(@NotNull final ItemStack stack,@Nullable final IToolType toolType)
+    {
+        return new TinkersWeaponHelper().isTinkersTool(stack,toolType);
+    }
+
+    /**
      * Check if a certain itemstack is a tinkers weapon.
      *
      * @param stack the stack to check for.
@@ -59,6 +77,20 @@ public final class TinkersWeaponHelper extends TinkersWeaponProxy
     public boolean isTinkersLongRangeWeapon(@NotNull final ItemStack stack)
     {
         return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof BowCore);
+    }
+
+    /**
+     * Check if a certain itemstack is a tinkers tool
+     *
+     * @param stack the stack to check for.
+     * @param toolType the tool type to check for.
+     * @return true if so.
+     */
+    @Override
+    @Optional.Method(modid = "tconstruct")
+    public boolean isTinkersTool(@NotNull final ItemStack stack,@Nullable final IToolType toolType)
+    {
+        return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof ToolCore) && (toolType == null ||stack.getItem().getHarvestLevel(stack,toolType.getName(),null,null)>=0 || (toolType == ToolType.HOE && stack.getItem() instanceof Mattock));
     }
 
     /**

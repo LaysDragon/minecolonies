@@ -1,7 +1,12 @@
 package com.minecolonies.api.compatibility.tinkers;
 
+import com.minecolonies.api.util.ItemStackUtils;
+import com.minecolonies.api.util.constant.IToolType;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Optional;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import slimeknights.tconstruct.library.tools.ToolCore;
 
 /**
  * Class to check if certain tinkers items serve as weapons for the guards.
@@ -26,6 +31,18 @@ public class TinkersWeaponProxy
      * @return true if so.
      */
     public boolean isTinkersLongRangeWeapon(@NotNull final ItemStack stack)
+    {
+        return false;
+    }
+
+    /**
+     * Check if a certain itemstack is a tinkers tool
+     *
+     * @param stack the stack to check for.
+     * @param toolType the tool type to check for.
+     * @return true if so.
+     */
+    public boolean isTinkersTool(@NotNull final ItemStack stack,@Nullable final IToolType toolType)
     {
         return false;
     }

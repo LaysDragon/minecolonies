@@ -146,7 +146,7 @@ public class Tool implements IDeliverable
 
         if (!toolTypeResult)
         {
-            return stack.getItem() instanceof ItemHoe && toolClass.equals(ToolType.HOE) || stack.getItem() instanceof ItemShield && toolClass.equals(ToolType.SHIELD);
+            return (stack.getItem() instanceof ItemHoe ||  Compatibility.isTinkersTool(stack,ToolType.HOE)) && toolClass.equals(ToolType.HOE) || stack.getItem() instanceof ItemShield && toolClass.equals(ToolType.SHIELD);
         }
 
         return toolTypeResult;
@@ -162,6 +162,22 @@ public class Tool implements IDeliverable
         }
 
         set.addAll(stack.getItem().getToolClasses(stack));
+
+        if( Compatibility.isTinkersTool(stack,ToolType.PICKAXE)) {
+            set.add("pickaxe");
+        }
+        if( Compatibility.isTinkersTool(stack,ToolType.SHOVEL)) {
+            set.add("shovel");
+        }
+        if( Compatibility.isTinkersTool(stack,ToolType.AXE)) {
+            set.add("axe");
+        }
+        if( Compatibility.isTinkersTool(stack,ToolType.HOE)) {
+            set.add("hoe");
+        }
+        if( Compatibility.isTinkersTool(stack,ToolType.SHEARS)) {
+            set.add("shears");
+        }
 
         if(stack.getItem() instanceof ItemBow  || Compatibility.isTinkersLongRangeWeapon(stack))
         {
