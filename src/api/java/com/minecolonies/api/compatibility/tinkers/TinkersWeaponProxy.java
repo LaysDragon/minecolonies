@@ -20,6 +20,17 @@ public class TinkersWeaponProxy
     }
 
     /**
+     * Check if a certain itemstack is a tinkers long range weapon.
+     *
+     * @param stack the stack to check for.
+     * @return true if so.
+     */
+    public boolean isTinkersLongRangeWeapon(@NotNull final ItemStack stack)
+    {
+        return false;
+    }
+
+    /**
      * Calculate the actual attack damage of the tinkers weapon.
      *
      * @param stack the stack.

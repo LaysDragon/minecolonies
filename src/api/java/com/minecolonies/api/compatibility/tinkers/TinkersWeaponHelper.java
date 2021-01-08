@@ -25,6 +25,17 @@ public final class TinkersWeaponHelper extends TinkersWeaponProxy
     }
 
     /**
+     * Check if a certain itemstack is a tinkers long range weapon.
+     *
+     * @param stack the stack to check for.
+     * @return true if so.
+     */
+    public static boolean isTinkersBow(@NotNull final ItemStack stack)
+    {
+        return new TinkersWeaponHelper().isTinkersLongRangeWeapon(stack);
+    }
+
+    /**
      * Check if a certain itemstack is a tinkers weapon.
      *
      * @param stack the stack to check for.
@@ -34,7 +45,20 @@ public final class TinkersWeaponHelper extends TinkersWeaponProxy
     @Optional.Method(modid = "tconstruct")
     public boolean isTinkersWeapon(@NotNull final ItemStack stack)
     {
-        return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof SwordCore || stack.getItem() instanceof BowCore);
+        return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof SwordCore);
+    }
+
+    /**
+     * Check if a certain itemstack is a tinkers long range weapon.
+     *
+     * @param stack the stack to check for.
+     * @return true if so.
+     */
+    @Override
+    @Optional.Method(modid = "tconstruct")
+    public boolean isTinkersLongRangeWeapon(@NotNull final ItemStack stack)
+    {
+        return !ItemStackUtils.isEmpty(stack) && (stack.getItem() instanceof BowCore);
     }
 
     /**

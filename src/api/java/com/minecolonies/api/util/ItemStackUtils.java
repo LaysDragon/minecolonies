@@ -395,7 +395,7 @@ public final class ItemStackUtils
         }
         else if (ToolType.BOW.equals(toolType))
         {
-            isATool = itemStack.getItem() instanceof ItemBow  || Compatibility.isTinkersWeapon(itemStack);
+            isATool = itemStack.getItem() instanceof ItemBow  || Compatibility.isTinkersLongRangeWeapon(itemStack);
         }
         else if (ToolType.SWORD.equals(toolType))
         {
