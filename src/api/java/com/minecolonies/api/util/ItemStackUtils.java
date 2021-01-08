@@ -281,7 +281,7 @@ public final class ItemStackUtils
             return false;
         }
 
-        final int level = Compatibility.isTinkersWeapon(stack) ? Compatibility.getToolLevel(stack) : getMiningLevel(stack, toolType);
+        final int level = (Compatibility.isTinkersWeapon(stack) ||  Compatibility.isTinkersLongRangeWeapon(stack)) ? Compatibility.getToolLevel(stack) : getMiningLevel(stack, toolType);
         return isTool(stack, toolType) && verifyToolLevel(stack, level, minimalLevel, maximumLevel);
     }
 
@@ -612,7 +612,7 @@ public final class ItemStackUtils
      */
     public static boolean doesItemServeAsWeapon(@NotNull final ItemStack stack)
     {
-        return stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemTool || Compatibility.isTinkersWeapon(stack);
+        return stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemTool || Compatibility.isTinkersWeapon(stack)  || Compatibility.isTinkersLongRangeWeapon(stack);
     }
 
     /**

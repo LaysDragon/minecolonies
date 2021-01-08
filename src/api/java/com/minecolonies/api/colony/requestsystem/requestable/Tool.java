@@ -163,7 +163,7 @@ public class Tool implements IDeliverable
 
         set.addAll(stack.getItem().getToolClasses(stack));
 
-        if(stack.getItem() instanceof ItemBow)
+        if(stack.getItem() instanceof ItemBow  || Compatibility.isTinkersLongRangeWeapon(stack))
         {
             set.add("bow");
         }
