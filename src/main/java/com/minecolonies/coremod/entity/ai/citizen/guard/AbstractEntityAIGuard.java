@@ -245,6 +245,10 @@ public abstract class AbstractEntityAIGuard<J extends AbstractJobGuard> extends 
         return null;
     }
 
+    public void wakeup(){
+        this.sleepTimer = 0;
+    }
+
     /**
      * Sleep activity
      */

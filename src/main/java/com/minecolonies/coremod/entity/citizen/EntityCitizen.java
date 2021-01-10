@@ -27,6 +27,7 @@ import com.minecolonies.coremod.colony.Colony;
 import com.minecolonies.coremod.colony.jobs.AbstractJobGuard;
 import com.minecolonies.coremod.colony.jobs.JobStudent;
 import com.minecolonies.coremod.entity.SittingEntity;
+import com.minecolonies.coremod.entity.ai.basic.AbstractAISkeleton;
 import com.minecolonies.coremod.entity.ai.citizen.guard.AbstractEntityAIGuard;
 import com.minecolonies.coremod.entity.ai.minimal.*;
 import com.minecolonies.coremod.entity.citizen.citizenhandlers.*;
@@ -664,6 +665,7 @@ public class EntityCitizen extends AbstractEntityCitizen
     @Override
     public boolean attackEntityFrom(@NotNull final DamageSource damageSource, final float damage)
     {
+
         // TODO Remove workaround and fix
         if (handleInWallDamage(damageSource))
         {
@@ -676,8 +678,32 @@ public class EntityCitizen extends AbstractEntityCitizen
             return false;
         }
 
+        handleDrownDamage(damageSource);
+
         // Maxdmg cap so citizens need a certain amount of hits to die, so we get more gameplay value and less scaling issues.
         return handleDamagePerformed(damageSource, damage, sourceEntity);
+    }
+
+    private boolean handleDrownDamage(@NotNull final DamageSource damageSource)
+    {
+        if (damageSource.getDamageType().equals(DamageSource.DROWN.getDamageType()))
+        {
+            if(getCitizenJobHandler().getColonyJob() instanceof AbstractJobGuard ){
+                AbstractJobGuard job = (AbstractJobGuard)getCitizenJobHandler().getColonyJob();
+                if(job.isAsleep()){
+                    if(job.getWorkerAI() instanceof AbstractEntityAIGuard) {
+                        AbstractEntityAIGuard ai = (AbstractEntityAIGuard) job.getWorkerAI();
+                        ai.wakeup();
+                        if(getHeldItem(EnumHand.OFF_HAND).getItem() instanceof ItemShield){
+                            setHeldItem(EnumHand.OFF_HAND, ItemStackUtils.EMPTY);
+                        }
+
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     private boolean handleInWallDamage(@NotNull final DamageSource damageSource)
