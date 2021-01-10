@@ -681,7 +681,11 @@ public class EntityCitizen extends AbstractEntityCitizen
         handleDrownDamage(damageSource);
 
         // Maxdmg cap so citizens need a certain amount of hits to die, so we get more gameplay value and less scaling issues.
-        return handleDamagePerformed(damageSource, damage, sourceEntity);
+        boolean result = handleDamagePerformed(damageSource, damage, sourceEntity);
+        if(result && !damageSource.damageType.equals("wakeywakey")){
+            this.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("glowing"),200));
+        }
+        return result;
     }
 
     private boolean handleDrownDamage(@NotNull final DamageSource damageSource)
