@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static com.minecolonies.api.util.constant.Constants.HARVESTCRAFTMODID;
+import static com.minecolonies.api.util.constant.Constants.JOURNEYMAPMODID;
 
 /**
  * This class is to store the methods that call the methods to check for miscellaneous compatibility problems.
@@ -162,6 +163,16 @@ public final class Compatibility
     public static boolean isPamsInstalled()
     {
         return Loader.isModLoaded(HARVESTCRAFTMODID);
+    }
+
+    /**
+     * Check if Journey map is installed.
+     *
+     * @return true if so.
+     */
+    public static boolean isJourneyMapInstalled()
+    {
+        return Loader.isModLoaded(JOURNEYMAPMODID);
     }
 
     /**

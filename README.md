@@ -29,6 +29,8 @@ https://www.minecolonies.com/
 - add ability for worker request and use hoe tinker Mattock and Kama(need test)
 - guard now will wakeup and take off shield(prevent some heavy mod shield that will sink the guard all the way down) if they are got drown damage
 - now citizen/guard get damaged will get a glowing effect 10 sec
+- add support for journey map waypoint share in chat while citizens dead
+
 For Developers
 --
 
